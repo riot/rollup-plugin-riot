@@ -47,6 +47,10 @@ export default {
 
 And other options of `riot-comipler` could be used.
 
+## Recipes
+
+- https://github.com/riot/examples/tree/gh-pages/rollup
+
 [travis-image]:https://img.shields.io/travis/riot/rollup-plugin-riot.svg?style=flat-square
 [travis-url]:https://travis-ci.org/riot/rollup-plugin-riot
 
