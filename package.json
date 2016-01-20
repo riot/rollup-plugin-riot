@@ -9,6 +9,7 @@
     "type": "git",
     "url": "git+https://github.com/riot/rollup-plugin-riot.git"
   },
+  "files": ["dist/"],
   "author": "Muut, Inc. and other contributors",
   "license": "MIT",
   "bugs": {
