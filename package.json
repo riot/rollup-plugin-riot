@@ -1,0 +1,43 @@
+{
+  "name": "rollup-plugin-riot",
+  "version": "0.1.0",
+  "description": "Rollup plugin for Riot.js",
+  "jsnext:main": "dist/rollup-plugin-riot.es6.js",
+  "main": "dist/rollup-plugin-riot.cjs.js",
+  "homepage": "https://github.com/riot/rollup-plugin-riot#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/riot/rollup-plugin-riot.git"
+  },
+  "author": "Muut, Inc. and other contributors",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/riot/rollup-plugin-riot/issues"
+  },
+  "keywords": [
+    "riot",
+    "rollup-plugin"
+  ],
+  "dependencies": {
+    "object-assign": "^4.0.1",
+    "riot-compiler": "^2.3.20",
+    "rollup-pluginutils": "^1.3.1"
+  },
+  "devDependencies": {
+    "ava": "^0.10.0",
+    "babel-preset-es2015-rollup": "^1.0.0",
+    "chokidar-cli": "^1.2.0",
+    "eslint": "^1.10.3",
+    "rollup": "^0.24.0",
+    "rollup-plugin-babel": "^2.3.8"
+  },
+  "scripts": {
+    "build": "rollup -c -f cjs -o dist/rollup-plugin-riot.cjs.js && rollup -c -f es6 -o dist/rollup-plugin-riot.es6.js",
+    "pretest": "npm run build",
+    "test": "npm run eslint && npm run ava",
+    "eslint": "eslint -c ./.eslintrc src/*.js",
+    "ava": "ava test/*.js",
+    "watch": "chokidar '*/index.js' 'index.js' -c 'npm run build'",
+    "prepublish": "npm run build"
+  }
+}
