@@ -30,6 +30,6 @@ test('tag with another extension', t =>
   rollupRiot('another-ext.js', { ext: 'html' })
     .then(b => { t.is(b.generate().code, expected('another-ext.js')) }))
 
-test('skip js', t =>
+test('skip css', t =>
   rollupRiot('skip.js', { skip: ['css'] })
     .then(b => { t.is(b.generate().code, expected('skip.js')) }))
