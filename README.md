@@ -45,7 +45,7 @@ export default {
 - `include`: A minimatch pattern for including files.
 - `exclude`: A minimatch pattern for excluding files.
 
-And other options of `riot-comipler` could be used.
+And other options of `riot-compiler` could be used.
 
 ## Recipes
 
