@@ -6,8 +6,9 @@ export default function riot(options = {}) {
   const
     frag = "import riot from 'riot';",
     ext = options.ext || 'tag',
-    filter = createFilter(options.include || `**/*.${ ext }`, options.exclude),
-    skip = options.skip || false
+    filter = createFilter(options.include, options.exclude),
+    skip = options.skip || false,
+    re = new RegExp(`\.${ ext }$`)
 
   // clone options
   options = assign({}, options)
@@ -23,6 +24,7 @@ export default function riot(options = {}) {
 
   return {
     transform (code, id) {
+      if (!re.test(id)) return null
       if (!filter(id)) return null
       return frag + compiler.compile(code, options)
     }
