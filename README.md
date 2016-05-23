@@ -42,6 +42,7 @@ export default {
 
 - `ext`: extension of tag file (default is 'tag')
 - `skip`: `exclude` on Riot API. Ex. `html`, `css` or `js`
+- `riotPath`: Specify the path to riot (default 'riot')
 - `include`: A minimatch pattern for including files.
 - `exclude`: A minimatch pattern for excluding files.
 

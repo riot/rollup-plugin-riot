@@ -1,6 +1,6 @@
 {
   "name": "rollup-plugin-riot",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Rollup plugin for Riot.js",
   "jsnext:main": "dist/rollup-plugin-riot.es6.js",
   "main": "dist/rollup-plugin-riot.cjs.js",
@@ -28,8 +28,8 @@
     "ava": "^0.14.0",
     "babel-preset-es2015-rollup": "^1.1.1",
     "chokidar-cli": "^1.2.0",
-    "eslint": "^2.9.0",
-    "rollup": "^0.26.2",
+    "eslint": "^2.10.2",
+    "rollup": "^0.26.3",
     "rollup-plugin-babel": "^2.4.0"
   },
   "scripts": {
