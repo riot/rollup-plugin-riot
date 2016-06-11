@@ -1,5 +1,5 @@
 import test     from 'ava'
-import rollup   from 'rollup'
+import { rollup }   from 'rollup'
 import fs       from 'fs'
 import { join } from 'path'
 import riot     from '../dist/rollup-plugin-riot.cjs.js'
@@ -8,7 +8,7 @@ const
   fixturesDir = join(__dirname, 'fixtures'),
   expectDir   = join(__dirname, 'expect'),
   expected    = name => fs.readFileSync(join(expectDir, name), 'utf8').trim(),
-  rollupRiot  = (filename, options = {}) => rollup.rollup({
+  rollupRiot  = (filename, options = {}) => rollup({
     entry: join(fixturesDir, filename),
     external: ['riot'],
     plugins: [riot(options)]
