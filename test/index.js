@@ -33,3 +33,7 @@ test('tag with another extension', t =>
 test('skip css', t =>
   rollupRiot('skip.js', { skip: ['css'] })
     .then(b => { t.is(b.generate().code, expected('skip.js')) }))
+
+test('es6 import inside tag', t =>
+  rollupRiot('es6-in-tag.js')
+    .then(b => { t.is(b.generate().code, expected('es6-in-tag.js')) }))
