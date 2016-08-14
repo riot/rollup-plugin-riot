@@ -27,7 +27,7 @@
     "rollup-pluginutils": "^1.5.0"
   },
   "devDependencies": {
-    "ava": "^0.15.2",
+    "ava": "^0.16.0",
     "babel-preset-es2015-rollup": "^1.1.1",
     "chokidar-cli": "^1.2.0",
     "eslint": "^3.0.0",
