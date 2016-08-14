@@ -23,7 +23,7 @@
   ],
   "dependencies": {
     "object-assign": "^4.1.0",
-    "riot-compiler": "^2.5.2",
+    "riot-compiler": "^2.5.3",
     "rollup-pluginutils": "^1.5.0"
   },
   "devDependencies": {
