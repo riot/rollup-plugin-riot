@@ -16,11 +16,11 @@ describe('rollup-plugin-riot', () => {
       .then(content => content.trim())
   }
 
-  function rollupRiot (filename, options = {}) {
+  function rollupRiot (filename, riotOpts) {
     const opts = {
       entry: path.join(fixturesDir, filename),
       external: ['riot'],
-      plugins: [riot(options)]
+      plugins: [riot(riotOpts || {})]
     }
     return rollup(opts).then(b => b.generate().code)
   }
