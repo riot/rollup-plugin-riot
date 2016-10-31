@@ -29,7 +29,7 @@
   "devDependencies": {
     "chokidar-cli": "^1.2.0",
     "co": "^4.6.0",
-    "eslint": "^3.5.0",
+    "eslint": "^3.8.0",
     "fs-promise": "^0.5.0",
     "mocha": "^3.0.2",
     "rollup": "^0.35.12",
