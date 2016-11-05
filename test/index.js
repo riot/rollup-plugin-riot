@@ -11,9 +11,13 @@ describe('rollup-plugin-riot', () => {
     fixturesDir = path.join(__dirname, 'fixtures'),
     expectDir = path.join(__dirname, 'expect')
 
+  function normalize(str) {
+    return str.trim().replace(/[\n\r]+/g, '')
+  }
+
   function readFile (name) {
     return fsp.readFile(path.join(expectDir, name), 'utf8')
-      .then(content => content.trim())
+      .then(content => normalize(content))
   }
 
   function rollupRiot (filename, riotOpts) {
@@ -22,7 +26,7 @@ describe('rollup-plugin-riot', () => {
       external: ['riot'],
       plugins: [riot(riotOpts || {})]
     }
-    return rollup(opts).then(b => b.generate().code)
+    return rollup(opts).then(b => normalize(b.generate().code))
   }
 
   it('single tag', wrap(function* () {
