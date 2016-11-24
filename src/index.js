@@ -4,8 +4,7 @@ import assign from 'object-assign'
 
 export default function riot(options = {}) {
   const
-    RIOT_PATH = options.riotPath || 'riot',
-    frag = `import riot from '${RIOT_PATH}';`,
+    frag = "import riot from 'riot';",
     ext = options.ext || 'tag',
     filter = createFilter(options.include, options.exclude),
     skip = options.skip || false,
