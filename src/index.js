@@ -1,6 +1,7 @@
 import { createFilter } from 'rollup-pluginutils'
 import compiler from 'riot-compiler'
 import assign from 'object-assign'
+import { extend } from './helper'
 
 export default function riot(options = {}) {
   const
@@ -8,7 +9,10 @@ export default function riot(options = {}) {
     ext = options.ext || 'tag',
     filter = createFilter(options.include, options.exclude),
     skip = options.skip || false,
+    parsers = options.parsers || {},
     re = new RegExp(`\.${ ext }$`)
+
+  extend(compiler.parsers, parsers)
 
   // clone options
   options = assign({}, options)
@@ -18,6 +22,7 @@ export default function riot(options = {}) {
   delete options.exclude
   delete options.skip
   delete options.ext
+  delete options.parsers
 
   // `exclude` is reserved by rollup, so we use `skip` instead
   options.exclude = skip
