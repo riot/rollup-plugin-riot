@@ -4,7 +4,8 @@ const
   wrap = require('co').wrap,
   fsp = require('fs-promise'),
   path = require('path'),
-  riot = require('../dist/rollup-plugin-riot.cjs.js')
+  riot = require('../dist/rollup-plugin-riot.cjs'),
+  cssnext = require('./helper/cssnext')
 
 describe('rollup-plugin-riot', () => {
   const
@@ -57,5 +58,11 @@ describe('rollup-plugin-riot', () => {
   it('es6 import inside tag', wrap(function* () {
     const filename = 'es6-in-tag.js'
     assert.equal(yield rollupRiot(filename), yield readFile(filename))
+  }))
+
+  it('compiles with custom parsers', wrap(function* () {
+    const filename = 'custom-parsers.js'
+    const opts = { style: 'cssnext', parsers: { css: { cssnext } } }
+    assert.equal(yield rollupRiot(filename, opts), yield readFile(filename))
   }))
 })
