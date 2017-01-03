@@ -24,7 +24,7 @@
   "dependencies": {
     "object-assign": "^4.1.0",
     "riot-compiler": "^3.0.0",
-    "rollup-pluginutils": "^1.5.2"
+    "rollup-pluginutils": "^2.0.0"
   },
   "devDependencies": {
     "chokidar-cli": "^1.2.0",
