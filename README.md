@@ -5,6 +5,8 @@
 
 # Rollup Plugin for Riot
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/riot/rollup-plugin-riot.svg)](https://greenkeeper.io/)
+
 Compiles tag files within rollup processes.
 
 ## Installation
