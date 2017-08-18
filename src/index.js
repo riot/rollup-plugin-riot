@@ -10,7 +10,7 @@ export default function riot(options = {}) {
     filter = createFilter(options.include, options.exclude),
     skip = options.skip || false,
     parsers = options.parsers || {},
-    re = new RegExp(`\.${ ext }$`)
+    re = new RegExp(`.${ ext }$`)
 
   extend(compiler.parsers, parsers)
 

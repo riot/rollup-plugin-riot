@@ -27,7 +27,9 @@ describe('rollup-plugin-riot', () => {
       external: ['riot'],
       plugins: [riot(riotOpts || {})]
     }
-    return rollup(opts).then(b => normalize(b.generate().code))
+    return rollup(opts).then(b => b.generate({
+      format: 'es'
+    }).then(({code}) => normalize(code)))
   }
 
   it('single tag', wrap(function* () {
