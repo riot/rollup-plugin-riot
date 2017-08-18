@@ -28,7 +28,6 @@
   },
   "devDependencies": {
     "chokidar-cli": "^1.2.0",
-    "co": "^4.6.0",
     "eslint": "^4.4.1",
     "fs-promise": "^2.0.3",
     "mocha": "^3.5.0",
