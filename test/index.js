@@ -21,15 +21,21 @@ describe('rollup-plugin-riot', () => {
       .then(content => normalize(content))
   }
 
-  function rollupRiot (filename, riotOpts) {
+  function rollupRiot (filename, riotOpts, sourcemap) {
     const opts = {
-      entry: path.join(fixturesDir, filename),
+      input: path.join(fixturesDir, filename),
       external: ['riot'],
       plugins: [riot(riotOpts || {})]
     }
+
     return rollup(opts).then(b => b.generate({
-      format: 'es'
-    }).then(({code}) => normalize(code)))
+      format: 'es',
+      sourcemap
+    }).then(({code, map}) => {
+      code = normalize(code)
+      if (sourcemap) return { code, map }
+      return code
+    }))
   }
 
   it('single tag', wrap(function* () {
@@ -66,5 +72,13 @@ describe('rollup-plugin-riot', () => {
     const filename = 'custom-parsers.js'
     const opts = { style: 'cssnext', parsers: { css: { cssnext } } }
     assert.equal(yield rollupRiot(filename, opts), yield readFile(filename))
+  }))
+
+  it('compiles with sourcemaps', wrap(function* () {
+    const filename = 'single.js'
+    const opts = { sourcemap: true }
+    const { map } = yield rollupRiot(filename, opts, true)
+
+    assert.ok(map)
   }))
 })

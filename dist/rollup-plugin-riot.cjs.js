@@ -5,6 +5,7 @@ function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'defau
 var rollupPluginutils = require('rollup-pluginutils');
 var compiler = _interopDefault(require('riot-compiler'));
 var assign = _interopDefault(require('object-assign'));
+var MagicString = _interopDefault(require('magic-string'));
 
 function extend (src) {
   var args = arguments;
@@ -22,12 +23,15 @@ function extend (src) {
   return src
 }
 
+function generateCode(code) {
+  var prefix = "import riot from 'riot';";
+  return prefix + code
+}
+
 function riot(options) {
   if ( options === void 0 ) options = {};
 
-  var
-    frag = "import riot from 'riot';",
-    ext = options.ext || 'tag',
+  var ext = options.ext || 'tag',
     filter = rollupPluginutils.createFilter(options.include, options.exclude),
     skip = options.skip || false,
     parsers = options.parsers || {},
@@ -44,15 +48,25 @@ function riot(options) {
   delete options.skip;
   delete options.ext;
   delete options.parsers;
+  delete options.sourcemap;
 
   // `exclude` is reserved by rollup, so we use `skip` instead
   options.exclude = skip;
 
   return {
-    transform: function transform (code, id) {
+    transform: function transform (src, id) {
       if (!re.test(id)) { return null }
       if (!filter(id)) { return null }
-      return frag + compiler.compile(code, options)
+      var code = generateCode(compiler.compile(src, options, id));
+      var map = new MagicString(code).generateMap({
+        source: id,
+        hires: true
+      });
+
+      return {
+        code: code,
+        map: map
+      }
     }
   }
 }
