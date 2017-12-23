@@ -10,7 +10,7 @@ Compiles tag files within rollup processes.
 ## Installation
 
 ```bash
-$ npm install --save-dev rollup-plugin-riot
+$ npm install --save-dev rollup-plugin-riot riot-compiler
 ```
 
 ## Usage
