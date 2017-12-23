@@ -19,11 +19,6 @@ function extend (src) {
   return src
 }
 
-function generateCode(code) {
-  var prefix = "import riot from 'riot';";
-  return prefix + code
-}
-
 function riot(options) {
   if ( options === void 0 ) options = {};
 
@@ -53,14 +48,16 @@ function riot(options) {
     transform: function transform (src, id) {
       if (!re.test(id)) { return null }
       if (!filter(id)) { return null }
-      var code = generateCode(compiler.compile(src, options, id));
-      var map = new MagicString(code).generateMap({
+
+      var str = new MagicString(compiler.compile(src, options, id));
+      var map = str.generateMap({
         source: id,
-        hires: true
+        hires: true,
+        includeContent: true
       });
 
       return {
-        code: code,
+        code: str.prepend("import riot from 'riot';").toString(),
         map: map
       }
     }

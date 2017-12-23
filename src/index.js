@@ -4,11 +4,6 @@ import assign from 'object-assign'
 import { extend } from './helper'
 import MagicString from 'magic-string'
 
-function generateCode(code) {
-  const prefix = "import riot from 'riot';"
-  return prefix + code
-}
-
 export default function riot(options = {}) {
   const ext = options.ext || 'tag',
     filter = createFilter(options.include, options.exclude),
@@ -36,14 +31,16 @@ export default function riot(options = {}) {
     transform (src, id) {
       if (!re.test(id)) return null
       if (!filter(id)) return null
-      const code = generateCode(compiler.compile(src, options, id))
-      const map = new MagicString(code).generateMap({
+
+      const str = new MagicString(compiler.compile(src, options, id))
+      const map = str.generateMap({
         source: id,
-        hires: true
+        hires: true,
+        includeContent: true
       })
 
       return {
-        code,
+        code: str.prepend("import riot from 'riot';").toString(),
         map
       }
     }
