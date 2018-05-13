@@ -44,7 +44,7 @@ export default {
 - `skip`: `exclude` on Riot API. Ex. `html`, `css` or `js`
 - `include`: a minimatch pattern for including files.
 - `exclude`: a minimatch pattern for excluding files.
-- `parsers`: extends parsers (it works the same as [riot.config.js](http://riotjs.com/guide/compiler/#es6-config-file)).
+- `parsers`: extends parsers (it works the same as [riot.config.js](http://riot.js.org/guide/compiler/#es6-config-file)).
 
 And other options of `riot-compiler` could be used.
 
