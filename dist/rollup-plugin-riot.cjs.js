@@ -1,68 +1,87 @@
+/*
+  rollup-plugin-riot v2.1.0
+  @license MIT
+*/
+/*eslint-disable*/
 'use strict';
 
-function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
-
 var rollupPluginutils = require('rollup-pluginutils');
-var compiler = _interopDefault(require('riot-compiler'));
-var assign = _interopDefault(require('object-assign'));
-var MagicString = _interopDefault(require('magic-string'));
+var MagicString = require('magic-string');
+var compiler = require('riot-compiler');
 
-function extend (src) {
-  var args = arguments;
-  for (var i = 1; i < args.length; ++i) {
-    var obj = args[i];
-    if (obj) {
-      for (var key in obj) {
+const justExt = (file) => {
+  const match = /[^/\\]\.([^./\\]*)$/.exec(file);
+  return match ? match[1] : ''
+};
+
+// eslint-disable-next-line fp/no-rest-parameters
+function extend(src, ...args) {
+  args
+    .filter(Boolean)
+    .forEach((obj) => {
+      Object.keys(obj).forEach((key) => {
         if (typeof obj[key] === 'object' && typeof src[key] === 'object')
-          { src[key] = extend(src[key], obj[key]); }
+          src[key] = extend(src[key], obj[key]);
         else if (typeof obj[key] !== 'undefined')
-          { src[key] = obj[key]; }
-      }
-    }
-  }
+          src[key] = obj[key];
+      });
+    });
   return src
 }
 
+function getFilter(opts) {
+  const filter = rollupPluginutils.createFilter(opts.include, opts.exclude);
+
+  const exts = Array.isArray(opts.ext) ? opts.ext : [opts.ext || 'tag'];
+  if (!exts.length) {
+    return filter
+  }
+
+  exts.forEach((e, i, arr) => {
+    if (e[0] === '.') {
+      arr[i] = e.substr(1);
+    }
+  });
+
+  return (name) => filter(name) && exts.indexOf(justExt(name)) > -1
+}
+
+/* eslint-disable fp/no-delete */
+
 function riot(options) {
-  if ( options === void 0 ) options = {};
-
-  var ext = options.ext || 'tag',
-    filter = rollupPluginutils.createFilter(options.include, options.exclude),
-    skip = options.skip || false,
-    parsers = options.parsers || {},
-    re = new RegExp(("." + ext + "$"));
-
-  extend(compiler.parsers, parsers);
-
   // clone options
-  options = assign({}, options);
+  options = Object.assign({}, options);
+
+  const filter = getFilter(options);
+
+  extend(compiler.parsers, options.parsers);
+
+  // `exclude` is reserved by rollup, so we use `skip` instead
+  options.exclude = options.skip || false;
 
   // drop properties not necessary for Riot comipler
-  delete options.include;
-  delete options.exclude;
-  delete options.skip;
   delete options.ext;
+  delete options.include;
+  delete options.skip;
   delete options.parsers;
   delete options.sourcemap;
 
-  // `exclude` is reserved by rollup, so we use `skip` instead
-  options.exclude = skip;
-
   return {
-    transform: function transform (src, id) {
-      if (!re.test(id)) { return null }
-      if (!filter(id)) { return null }
+    transform(src, id) {
+      if (!filter(id)) {
+        return null
+      }
 
-      var str = new MagicString(compiler.compile(src, options, id));
-      var map = str.generateMap({
+      const str = new MagicString(compiler.compile(src, options, id));
+      const map = str.generateMap({
         source: id,
         hires: true,
         includeContent: true
       });
 
       return {
-        code: str.prepend("import riot from 'riot';").toString(),
-        map: map
+        code: str.prepend('import riot from \'riot\';').toString(),
+        map
       }
     }
   }
