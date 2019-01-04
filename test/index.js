@@ -1,13 +1,11 @@
-const
-  assert = require('assert'),
-  rollup = require('rollup').rollup,
-  wrap = require('co').wrap,
-  fsp = require('fs-promise'),
-  path = require('path'),
-  riot = require('../dist/rollup-plugin-riot.cjs'),
-  cssnext = require('./helper/cssnext')
+const expect = require('expect.js')
+const rollup = require('rollup').rollup
+const fsp = require('fs-extra')
+const path = require('path')
+const riot = require('..')
+const cssnext = require('./helper/cssnext')
 
-describe('rollup-plugin-riot', () => {
+describe('rollup-plugin-riot', function() {
   const
     fixturesDir = path.join(__dirname, 'fixtures'),
     expectDir = path.join(__dirname, 'expect')
@@ -16,69 +14,105 @@ describe('rollup-plugin-riot', () => {
     return str.trim().replace(/[\n\r]+/g, '')
   }
 
-  function readFile (name) {
+  function readFile(name) {
     return fsp.readFile(path.join(expectDir, name), 'utf8')
-      .then(content => normalize(content))
+      .then((content) => normalize(content))
   }
 
-  function rollupRiot (filename, riotOpts, sourcemap) {
+  function rollupRiot(filename, riotOpts, sourcemap) {
     const opts = {
       input: path.join(fixturesDir, filename),
       external: ['riot'],
       plugins: [riot(riotOpts || {})]
     }
 
-    return rollup(opts).then(b => b.generate({
+    return rollup(opts).then((b) => b.generate({
       format: 'es',
       sourcemap
-    }).then(({code, map}) => {
-      code = normalize(code)
-      if (sourcemap) return { code, map }
-      return code
-    }))
+    })).then((result) => {
+      expect(result).to.be.an('object')
+      expect(result).to.have.property('code')
+      result.code = normalize(result.code)
+      return sourcemap ? result : result.code
+    })
   }
 
-  it('single tag', wrap(function* () {
+  it('single tag', function() {
     const filename = 'single.js'
-    assert.equal(yield rollupRiot(filename), yield readFile(filename))
-  }))
 
-  it('multiple tag', wrap(function* () {
+    return Promise.all([rollupRiot(filename), readFile(filename)])
+      .then(([result, expected]) => {
+        expect(result).to.be(expected)
+      })
+  })
+
+  it('multiple tag', function() {
     const filename = 'multiple.js'
-    assert.equal(yield rollupRiot(filename), yield readFile(filename))
-  }))
 
-  it('multiple tag in single file', wrap(function* () {
+    return Promise.all([rollupRiot(filename), readFile(filename)])
+      .then(([result, expected]) => {
+        expect(result).to.be(expected)
+      })
+  })
+
+  it('multiple tag in single file', function() {
     const filename = 'multiple2.js'
-    assert.equal(yield rollupRiot(filename), yield readFile(filename))
-  }))
 
-  it('tag with another extension', wrap(function* () {
-    const filename = 'another-ext.js', opts = { ext: 'html' }
-    assert.equal(yield rollupRiot(filename, opts), yield readFile(filename))
-  }))
+    return Promise.all([rollupRiot(filename), readFile(filename)])
+      .then(([result, expected]) => {
+        expect(result).to.be(expected)
+      })
+  })
 
-  it('skip css', wrap(function* () {
-    const filename = 'skip.js', opts = { skip: ['css'] }
-    assert.equal(yield rollupRiot(filename, opts), yield readFile(filename))
-  }))
 
-  it('es6 import inside tag', wrap(function* () {
+  it('tag with another extension', function() {
+    const filename = 'another-ext.js'
+    const opts = { ext: 'html' }
+
+    return Promise.all([rollupRiot(filename, opts), readFile(filename)])
+      .then(([result, expected]) => {
+        expect(result).to.be(expected)
+      })
+  })
+
+  it('skip css', function() {
+    const filename = 'skip.js'
+    const opts = { skip: ['css'] }
+
+    return Promise.all([rollupRiot(filename, opts), readFile(filename)])
+      .then(([result, expected]) => {
+        expect(result).to.be(expected)
+      })
+  })
+
+  it('es6 import inside tag', function() {
     const filename = 'es6-in-tag.js'
-    assert.equal(yield rollupRiot(filename), yield readFile(filename))
-  }))
 
-  it('compiles with custom parsers', wrap(function* () {
+    return Promise.all([rollupRiot(filename), readFile(filename)])
+      .then(([result, expected]) => {
+        expect(result).to.be(expected)
+      })
+  })
+
+  it('compiles with custom parsers', function() {
     const filename = 'custom-parsers.js'
     const opts = { style: 'cssnext', parsers: { css: { cssnext } } }
-    assert.equal(yield rollupRiot(filename, opts), yield readFile(filename))
-  }))
 
-  it('compiles with sourcemaps', wrap(function* () {
+    return Promise.all([rollupRiot(filename, opts), readFile(filename)])
+      .then(([result, expected]) => {
+        expect(result).to.be(expected)
+      })
+  })
+
+  it('compiles with sourcemaps', function() {
     const filename = 'single.js'
-    const opts = { sourcemap: true }
-    const { map } = yield rollupRiot(filename, opts, true)
+    const opts = { sourcemap: true, globals: { riot: 'riot' } }
 
-    assert.ok(map)
-  }))
+    return rollupRiot(filename, opts, true)
+      .then((result) => {
+        expect(result).to.be.an('object').ok()
+        expect(result).to.have.property('map')
+        expect(result.map).to.be.an('object').ok()
+      })
+  })
 })

@@ -1,2 +1,5 @@
 node_modules
+test/expect/*.js
+test/fixtures/*.js
+.vscode
 *.log

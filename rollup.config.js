@@ -1,11 +1,27 @@
-import buble from 'rollup-plugin-buble'
+import pkg from './package.json'
+
+const external = Object.keys(pkg.dependencies)
+const banner = `/*
+  rollup-plugin-riot v${pkg.version}
+  @license ${pkg.license}
+*/
+/*eslint-disable*/`
 
 export default {
-  entry: 'src/index.js',
-  plugins: [buble()],
-  external: ['object-assign', 'riot-compiler', 'rollup-pluginutils'],
-  targets: [
-    { dest: 'dist/rollup-plugin-riot.cjs.js', format: 'cjs' },
-    { dest: 'dist/rollup-plugin-riot.es6.js', format: 'es' }
+  input: pkg.source,
+  plugins: [],
+  external,
+  output: [
+    {
+      banner,
+      file: pkg.main,
+      format: 'cjs',
+      interop: false
+    },
+    {
+      banner,
+      file: pkg.module,
+      format: 'es'
+    }
   ]
 }
