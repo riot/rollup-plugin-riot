@@ -1,4 +1,5 @@
-const pkg = require('./package.json')
+import pkg from './package.json'
+
 const external = Object.keys(pkg.dependencies)
 const banner = `/*
   rollup-plugin-riot v${pkg.version}
