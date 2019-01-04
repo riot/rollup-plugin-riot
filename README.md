@@ -1,9 +1,9 @@
 # Rollup Plugin for Riot
 
-[![Build Status][travis-badge]][travis-url]
-[![MIT License][license-badge]][license-url]
-[![NPM downloads][downloads-badge]][npm-url]
-[![NPM version][npm-badge]][npm-url]
+[![Build Status][travis-image]][travis-url]
+[![NPM version][npm-version-image]][npm-url]
+[![NPM downloads][npm-downloads-image]][npm-url]
+[![MIT License][license-image]][license-url]
 
 Compiles tag files within rollup processes.
 
@@ -54,11 +54,12 @@ And other options of `riot-compiler` could be used.
 
 - https://github.com/riot/examples/tree/gh-pages/rollup
 
-[travis-badge]:     https://img.shields.io/travis/riot/rollup-plugin-riot.svg?style=flat-square
-[travis-url]:       https://travis-ci.org/riot/rollup-plugin-riot
-[license-badge]:    https://img.shields.io/badge/license-MIT-000000.svg?style=flat-square
-[license-url]:      LICENSE
-[npm-badge]:        https://img.shields.io/npm/v/rollup-plugin-riot.svg?style=flat-square
-[npm-url]:          https://npmjs.org/package/rollup-plugin-riot
-[downloads-badge]:  https://img.shields.io/npm/dm/rollup-plugin-riot.svg?style=flat-square
-[downloads-url]:    https://npm-stat.com/charts.html?package=rollup-plugin-riot
+[travis-image]:https://img.shields.io/travis/riot/rollup-plugin-riot.svg?style=flat-square
+[travis-url]:https://travis-ci.org/riot/rollup-plugin-riot
+
+[license-image]:https://img.shields.io/badge/license-MIT-000000.svg?style=flat-square
+[license-url]:LICENSE
+
+[npm-version-image]:https://img.shields.io/npm/v/rollup-plugin-riot.svg?style=flat-square
+[npm-downloads-image]:https://img.shields.io/npm/dm/rollup-plugin-riot.svg?style=flat-square
+[npm-url]:https://npmjs.org/package/rollup-plugin-riot
