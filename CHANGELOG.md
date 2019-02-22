@@ -1,5 +1,10 @@
 # rollup-plugin-riot
 
+## [4.0.0-alpha.1]
+
+- Update the riot compiler@4
+- Prepare the initial setup for riot@4
+
 ## \[2.1.0]
 
 ### Changed
