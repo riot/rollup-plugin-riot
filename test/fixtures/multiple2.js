@@ -1,1 +1,2 @@
-import './third.tag'
+import Third from './third.riot'
+export default Third

@@ -1,6 +1,27 @@
-import riot from 'riot';
+const name = 'bublé and cssnext';
 
-riot.tag2('custom-parsers', '<h1>{title}</h1>', 'custom-parsers h1,[data-is="custom-parsers"] h1{ color: #f04; border-bottom: 1px solid #f04; }', '', function(opts) {
-    const name = 'bublé and cssnext';
-    this.title = `Hello ${ name }!`;
-});
+var CustomParser = {
+  'css': ``,
+
+  'tag': {
+    title: `Hello ${ name }!`
+  },
+
+  'template': function(template, expressionTypes, bindingTypes, getComponent) {
+    return template('<h1 expr9><!----></h1>', [{
+      'redundantAttribute': 'expr9',
+      'selector': '[expr9]',
+
+      'expressions': [{
+        'type': expressionTypes.TEXT,
+        'childNodeIndex': 0,
+
+        'evaluate': function(scope) {
+          return scope.title;
+        }
+      }]
+    }]);
+  }
+};
+
+export default CustomParser;

@@ -3,10 +3,10 @@
 
   <script>
     const name = 'bublé and cssnext'
-    this.title = `Hello ${ name }!`
+    export default { title: `Hello ${ name }!` }
   </script>
 
-  <style>
+  <style type='cssnext'>
     :scope {
       --riot-color: #f04;
     }

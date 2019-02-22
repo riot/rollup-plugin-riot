@@ -45,10 +45,9 @@ export default {
 - `ext`: extension of tag file (default is 'tag')
 - `skip`: `exclude` on Riot API. Ex. `html`, `css` or `js`
 - `include`: a [minimatch](https://www.npmjs.com/package/minimatch) pattern for including files.
-- `exclude`: a minimatch pattern for excluding files.
-- `parsers`: extends parsers (it works the same as [riot.config.js](http://riot.js.org/guide/compiler/#es6-config-file)).
+- `exclude`: a minimatch pattern for excluding files.compiler/#es6-config-file)).
 
-And other options of `riot-compiler` could be used.
+And other options of `@riotjs/compiler` could be used.
 
 ## Recipes
 

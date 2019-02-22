@@ -5,7 +5,7 @@ node_js:
 sudo: false
 
 install:
-  - npm install riot-compiler
+  - npm install @riotjs/compiler
   - npm i
 
 notifications:

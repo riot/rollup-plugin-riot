@@ -1,1 +1,3 @@
-import './first.tag'
+import First from './first.riot'
+
+export default First

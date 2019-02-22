@@ -1,1 +1,3 @@
-import './es6.tag'
+import Es6 from './es6.riot'
+
+export default Es6

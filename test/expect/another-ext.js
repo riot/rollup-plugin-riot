@@ -1,5 +1,25 @@
-import riot from 'riot';
+var Fourth = {
+  'css': null,
 
-riot.tag2('fourth', '<p>{message}</p>', '', '', function(opts) {
-    this.message = 'Hello!';
-});
+  'tag': {
+    message: 'Hello!'
+  },
+
+  'template': function(template, expressionTypes, bindingTypes, getComponent) {
+    return template('<p expr6><!----></p>', [{
+      'redundantAttribute': 'expr6',
+      'selector': '[expr6]',
+
+      'expressions': [{
+        'type': expressionTypes.TEXT,
+        'childNodeIndex': 0,
+
+        'evaluate': function(scope) {
+          return scope.message;
+        }
+      }]
+    }]);
+  }
+};
+
+export default Fourth;

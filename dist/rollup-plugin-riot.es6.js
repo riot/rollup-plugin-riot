@@ -3,34 +3,18 @@
   @license MIT
 */
 /*eslint-disable*/
+import { compile } from '@riotjs/compiler';
 import { createFilter } from 'rollup-pluginutils';
-import MagicString from 'magic-string';
-import compiler from 'riot-compiler';
 
 const justExt = (file) => {
   const match = /[^/\\]\.([^./\\]*)$/.exec(file);
   return match ? match[1] : ''
 };
 
-// eslint-disable-next-line fp/no-rest-parameters
-function extend(src, ...args) {
-  args
-    .filter(Boolean)
-    .forEach((obj) => {
-      Object.keys(obj).forEach((key) => {
-        if (typeof obj[key] === 'object' && typeof src[key] === 'object')
-          src[key] = extend(src[key], obj[key]);
-        else if (typeof obj[key] !== 'undefined')
-          src[key] = obj[key];
-      });
-    });
-  return src
-}
-
 function getFilter(opts) {
   const filter = createFilter(opts.include, opts.exclude);
 
-  const exts = Array.isArray(opts.ext) ? opts.ext : [opts.ext || 'tag'];
+  const exts = Array.isArray(opts.ext) ? opts.ext : [opts.ext || 'riot'];
   if (!exts.length) {
     return filter
   }
@@ -52,8 +36,6 @@ function riot(options) {
 
   const filter = getFilter(options);
 
-  extend(compiler.parsers, options.parsers);
-
   // `exclude` is reserved by rollup, so we use `skip` instead
   options.exclude = options.skip || false;
 
@@ -70,17 +52,12 @@ function riot(options) {
         return null
       }
 
-      const str = new MagicString(compiler.compile(src, options, id));
-      const map = str.generateMap({
-        source: id,
-        hires: true,
-        includeContent: true
+      const { code, map } = compile(src, {
+        file: id,
+        ...options
       });
 
-      return {
-        code: str.prepend('import riot from \'riot\';').toString(),
-        map
-      }
+      return { code, map }
     }
   }
 }

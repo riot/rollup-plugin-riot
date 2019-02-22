@@ -5,25 +5,10 @@ const justExt = (file) => {
   return match ? match[1] : ''
 }
 
-// eslint-disable-next-line fp/no-rest-parameters
-export function extend(src, ...args) {
-  args
-    .filter(Boolean)
-    .forEach((obj) => {
-      Object.keys(obj).forEach((key) => {
-        if (typeof obj[key] === 'object' && typeof src[key] === 'object')
-          src[key] = extend(src[key], obj[key])
-        else if (typeof obj[key] !== 'undefined')
-          src[key] = obj[key]
-      })
-    })
-  return src
-}
-
 export function getFilter(opts) {
   const filter = createFilter(opts.include, opts.exclude)
 
-  const exts = Array.isArray(opts.ext) ? opts.ext : [opts.ext || 'tag']
+  const exts = Array.isArray(opts.ext) ? opts.ext : [opts.ext || 'riot']
   if (!exts.length) {
     return filter
   }
