@@ -10,10 +10,10 @@ Compiles tag files within rollup processes.
 ## Installation
 
 ```bash
-npm install rollup-plugin-riot riot-compiler -D
+npm install rollup-plugin-riot @riotjs/compiler -D
 ```
 
-Requires riot-compiler v3.5.x and Rollup v0.56 or above.
+Requires riot-compiler v4.x.x and Rollup v0.66 or above.
 
 ## Usage
 
