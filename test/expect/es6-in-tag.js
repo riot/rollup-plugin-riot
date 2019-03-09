@@ -3,7 +3,7 @@ const greeting = 'Hello!';
 var Es6 = {
   'css': null,
 
-  'tag': {
+  'exports': {
     message: greeting
   },
 
@@ -21,7 +21,9 @@ var Es6 = {
         }
       }]
     }]);
-  }
+  },
+
+  'name': 'es6'
 };
 
 export default Es6;

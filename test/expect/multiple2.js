@@ -1,7 +1,7 @@
 var Second = {
   'css': null,
 
-  'tag': {
+  'exports': {
     message: 'Hello!'
   },
 
@@ -19,13 +19,15 @@ var Second = {
         }
       }]
     }]);
-  }
+  },
+
+  'name': 'second'
 };
 
 var Third = {
   'css': null,
 
-  'tag': {
+  'exports': {
     components: {
       second: Second
     },
@@ -59,7 +61,9 @@ var Third = {
       'redundantAttribute': 'expr4',
       'selector': '[expr4]'
     }]);
-  }
+  },
+
+  'name': 'third-a'
 };
 
 export default Third;

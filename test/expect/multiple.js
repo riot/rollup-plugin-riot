@@ -1,7 +1,7 @@
 var First = {
   'css': null,
 
-  'tag': {
+  'exports': {
     message: 'Hello!'
   },
 
@@ -19,13 +19,15 @@ var First = {
         }
       }]
     }]);
-  }
+  },
+
+  'name': 'first'
 };
 
 var Second = {
   'css': null,
 
-  'tag': {
+  'exports': {
     message: 'Hello!'
   },
 
@@ -43,7 +45,9 @@ var Second = {
         }
       }]
     }]);
-  }
+  },
+
+  'name': 'second'
 };
 
 var multiple = {

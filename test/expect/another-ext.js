@@ -1,7 +1,7 @@
 var Fourth = {
   'css': null,
 
-  'tag': {
+  'exports': {
     message: 'Hello!'
   },
 
@@ -19,7 +19,9 @@ var Fourth = {
         }
       }]
     }]);
-  }
+  },
+
+  'name': 'fourth'
 };
 
 export default Fourth;

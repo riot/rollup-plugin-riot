@@ -1,7 +1,7 @@
 var First = {
   'css': null,
 
-  'tag': {
+  'exports': {
     message: 'Hello!'
   },
 
@@ -19,7 +19,9 @@ var First = {
         }
       }]
     }]);
-  }
+  },
+
+  'name': 'first'
 };
 
 export default First;

@@ -3,7 +3,7 @@ const name = 'bublé and cssnext';
 var CustomParser = {
   'css': ``,
 
-  'tag': {
+  'exports': {
     title: `Hello ${ name }!`
   },
 
@@ -21,7 +21,9 @@ var CustomParser = {
         }
       }]
     }]);
-  }
+  },
+
+  'name': 'custom-parsers'
 };
 
 export default CustomParser;

@@ -1,5 +1,5 @@
 /*
-  rollup-plugin-riot v2.1.0
+  rollup-plugin-riot v4.0.0-alpha.1
   @license MIT
 */
 /*eslint-disable*/

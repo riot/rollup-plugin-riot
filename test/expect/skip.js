@@ -3,7 +3,7 @@ var Skip = {
       display: block;
     }`,
 
-  'tag': {
+  'exports': {
     message: 'Hello!'
   },
 
@@ -21,7 +21,9 @@ var Skip = {
         }
       }]
     }]);
-  }
+  },
+
+  'name': 'skip'
 };
 
 export default Skip;

@@ -22,31 +22,31 @@
     "rollup-plugin"
   ],
   "peerDependencies": {
-    "@riotjs/compiler": "^4.0.0-alpha.17",
-    "rollup": ">=0.56.0"
+    "@riotjs/compiler": "^4.0.0-beta.1",
+    "rollup": ">=1.6.0"
   },
   "dependencies": {
-    "@riotjs/compiler": "^4.0.0-alpha.17",
     "rollup-pluginutils": "^2.4.1"
   },
   "devDependencies": {
+    "chai": "^4.2.0",
     "chokidar-cli": "^1.2.2",
-    "eslint": "^5.14.1",
+    "eslint": "^5.15.1",
     "eslint-config-riot": "^2.0.0",
-    "expect.js": "^0.3.1",
     "fs-extra": "^7.0.1",
-    "mocha": "^5.2.0",
-    "postcss": "^7.0.7",
+    "mocha": "^6.0.2",
+    "postcss": "^7.0.14",
     "postcss-cssnext": "^3.1.0",
-    "rollup": "^0.68.2"
+    "rollup": "^1.0.0"
   },
   "scripts": {
     "build": "rollup -c",
+    "prepare": "npm i --no-save @riotjs/compiler@4.0.0-beta.1",
     "pretest": "npm run build",
     "test": "npm run eslint && npm run mocha",
     "eslint": "eslint src/*.js",
     "mocha": "mocha test/*.js",
     "watch": "chokidar 'src/*.js' -c 'npm run build'",
-    "prepublish": "npm run build"
+    "prepublishOnly": "npm run build"
   }
 }
