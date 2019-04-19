@@ -1,6 +1,6 @@
 {
   "name": "rollup-plugin-riot",
-  "version": "4.0.0-beta.1",
+  "version": "4.0.0",
   "description": "Rollup plugin for Riot.js",
   "jsnext:main": "dist/rollup-plugin-riot.es6.js",
   "main": "dist/rollup-plugin-riot.cjs.js",
