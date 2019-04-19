@@ -7,6 +7,10 @@
 
 Compiles tag files within rollup processes.
 
+## Important
+
+If you are using Riot.js < 4.0.0 please check the [v3 branch](https://github.com/riot/rollup-plugin-riot/tree/v3)
+
 ## Installation
 
 ```bash
