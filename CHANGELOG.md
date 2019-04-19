@@ -1,5 +1,9 @@
 # rollup-plugin-riot
 
+## [4.0.0]
+
+- Stable release using the latest `@riotjs/compiler@4`
+
 ## [4.0.0-beta.1]
 
 - Update dependencies and the riot compiler
