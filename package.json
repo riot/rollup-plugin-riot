@@ -41,7 +41,7 @@
   },
   "scripts": {
     "build": "rollup -c",
-    "prepare": "npm i --no-save @riotjs/compiler@4.0.0-beta.1",
+    "prepare": "npm i --no-save @riotjs/compiler",
     "pretest": "npm run build",
     "test": "npm run eslint && npm run mocha",
     "eslint": "eslint src/*.js",
