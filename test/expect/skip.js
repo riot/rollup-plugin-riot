@@ -1,7 +1,5 @@
 var Skip = {
-  'css': `skip :scope,[is="skip"] :scope{
-      display: block;
-    }`,
+  'css': `skip :scope,[is="skip"] :scope{ display: block; }`,
 
   'exports': {
     message: 'Hello!'
