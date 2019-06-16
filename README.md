@@ -46,7 +46,7 @@ export default {
 }
 ```
 
-- `ext`: extension of tag file (default is 'tag')
+- `ext`: extension of tag file (default is 'riot')
 - `skip`: `exclude` on Riot API. Ex. `html`, `css` or `js`
 - `include`: a [minimatch](https://www.npmjs.com/package/minimatch) pattern for including files.
 - `exclude`: a minimatch pattern for excluding files.compiler/#es6-config-file)).
