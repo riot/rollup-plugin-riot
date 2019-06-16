@@ -17,7 +17,7 @@ If you are using Riot.js < 4.0.0 please check the [v3 branch](https://github.com
 npm install rollup-plugin-riot @riotjs/compiler -D
 ```
 
-Requires riot-compiler v4.x.x and Rollup v0.66 or above.
+Requires @riotjs/compiler v4.x.x and Rollup v1.x.x or above.
 
 ## Usage
 
@@ -49,7 +49,7 @@ export default {
 - `ext`: extension of tag file (default is 'riot')
 - `skip`: `exclude` on Riot API. Ex. `html`, `css` or `js`
 - `include`: a [minimatch](https://www.npmjs.com/package/minimatch) pattern for including files.
-- `exclude`: a minimatch pattern for excluding files.compiler/#es6-config-file)).
+- `exclude`: a minimatch pattern for excluding files.
 
 And other options of `@riotjs/compiler` could be used.
 
