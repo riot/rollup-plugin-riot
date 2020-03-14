@@ -6,7 +6,7 @@ var First = {
   },
 
   'template': function(template, expressionTypes, bindingTypes, getComponent) {
-    return template('<p expr1><!----></p>', [{
+    return template('<p expr1="expr1"> </p>', [{
       'redundantAttribute': 'expr1',
       'selector': '[expr1]',
 
@@ -32,7 +32,7 @@ var Second = {
   },
 
   'template': function(template, expressionTypes, bindingTypes, getComponent) {
-    return template('<p expr2><!----></p>', [{
+    return template('<p expr2="expr2"> </p>', [{
       'redundantAttribute': 'expr2',
       'selector': '[expr2]',
 

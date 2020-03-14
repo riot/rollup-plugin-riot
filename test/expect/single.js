@@ -6,7 +6,7 @@ var First = {
   },
 
   'template': function(template, expressionTypes, bindingTypes, getComponent) {
-    return template('<p expr0><!----></p>', [{
+    return template('<p expr0="expr0"> </p>', [{
       'redundantAttribute': 'expr0',
       'selector': '[expr0]',
 

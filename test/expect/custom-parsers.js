@@ -8,7 +8,7 @@ var CustomParser = {
   },
 
   'template': function(template, expressionTypes, bindingTypes, getComponent) {
-    return template('<h1 expr9><!----></h1>', [{
+    return template('<h1 expr9="expr9"> </h1>', [{
       'redundantAttribute': 'expr9',
       'selector': '[expr9]',
 

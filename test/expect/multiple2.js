@@ -6,7 +6,7 @@ var Second = {
   },
 
   'template': function(template, expressionTypes, bindingTypes, getComponent) {
-    return template('<p expr5><!----></p>', [{
+    return template('<p expr5="expr5"> </p>', [{
       'redundantAttribute': 'expr5',
       'selector': '[expr5]',
 
@@ -36,7 +36,7 @@ var Third = {
   },
 
   'template': function(template, expressionTypes, bindingTypes, getComponent) {
-    return template('<p expr3><!----></p><second expr4></second>', [{
+    return template('<p expr3="expr3"> </p><second expr4="expr4"></second>', [{
       'redundantAttribute': 'expr3',
       'selector': '[expr3]',
 

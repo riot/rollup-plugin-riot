@@ -6,7 +6,7 @@ var Skip = {
   },
 
   'template': function(template, expressionTypes, bindingTypes, getComponent) {
-    return template('<p expr7><!----></p>', [{
+    return template('<p expr7="expr7"> </p>', [{
       'redundantAttribute': 'expr7',
       'selector': '[expr7]',
 

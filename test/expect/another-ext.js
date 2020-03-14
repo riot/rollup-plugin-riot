@@ -6,7 +6,7 @@ var Fourth = {
   },
 
   'template': function(template, expressionTypes, bindingTypes, getComponent) {
-    return template('<p expr6><!----></p>', [{
+    return template('<p expr6="expr6"> </p>', [{
       'redundantAttribute': 'expr6',
       'selector': '[expr6]',
 

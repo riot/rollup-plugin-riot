@@ -8,7 +8,7 @@ var Es6 = {
   },
 
   'template': function(template, expressionTypes, bindingTypes, getComponent) {
-    return template('<p expr8><!----></p>', [{
+    return template('<p expr8="expr8"> </p>', [{
       'redundantAttribute': 'expr8',
       'selector': '[expr8]',
 
