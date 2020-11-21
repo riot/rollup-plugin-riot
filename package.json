@@ -22,21 +22,21 @@
     "rollup-plugin"
   ],
   "peerDependencies": {
-    "@riotjs/compiler": "^4.8.2",
-    "rollup": ">=2.7.2"
+    "@riotjs/compiler": "^5.0.0",
+    "rollup": ">=2.33.3"
   },
   "dependencies": {
     "rollup-pluginutils": "^2.8.2"
   },
   "devDependencies": {
-    "@riotjs/compiler": "^4.8.2",
+    "@riotjs/compiler": "^5.0.0",
     "chai": "^4.2.0",
     "chokidar-cli": "^2.1.0",
-    "eslint": "^6.8.0",
+    "eslint": "^7.14.0",
     "eslint-config-riot": "^3.0.0",
-    "fs-extra": "^9.0.0",
-    "mocha": "^7.1.1",
-    "postcss": "^7.0.27",
+    "fs-extra": "^9.0.1",
+    "mocha": "^8.2.1",
+    "postcss": "^8.1.8",
     "postcss-cssnext": "^3.1.0",
     "rollup": "^1.0.0"
   },
