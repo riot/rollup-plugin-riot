@@ -17,7 +17,7 @@ If you are using Riot.js < 4.0.0 please check the [v3 branch](https://github.com
 npm install rollup-plugin-riot @riotjs/compiler -D
 ```
 
-Requires @riotjs/compiler v4.x.x and Rollup v1.x.x or above.
+Requires @riotjs/compiler > 4.x.x and Rollup v1.x.x or above.
 
 ## Usage
 
