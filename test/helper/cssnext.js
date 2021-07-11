@@ -3,5 +3,5 @@ const
   cssnext = require('postcss-cssnext')
 
 module.exports = function(css) {
-  return postcss([cssnext]).process(css).css
+  return { code: postcss([cssnext]).process(css).css }
 }

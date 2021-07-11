@@ -4,3 +4,4 @@ test/expect/*.js
 test/fixtures/*.js
 .vscode
 *.log
+.idea

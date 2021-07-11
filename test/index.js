@@ -11,8 +11,8 @@ describe('rollup-plugin-riot', function() {
     fixturesDir = path.join(__dirname, 'fixtures'),
     expectDir = path.join(__dirname, 'expect')
 
-  function readFile(name) {
-    return fsp.readFile(path.join(expectDir, name), 'utf8')
+  function readExpectedString(name) {
+    return fsp.readFile(path.join(expectDir, name.replace('.js', '.txt')), 'utf8')
       .then((content) => content)
   }
 
@@ -34,7 +34,7 @@ describe('rollup-plugin-riot', function() {
   it('single tag', function() {
     const filename = 'single.js'
 
-    return Promise.all([rollupRiot(filename), readFile(filename)])
+    return Promise.all([rollupRiot(filename), readExpectedString(filename)])
       .then(([result, expected]) => {
         expect(result).to.be.equal(expected)
       })
@@ -43,7 +43,7 @@ describe('rollup-plugin-riot', function() {
   it('multiple tag', function() {
     const filename = 'multiple.js'
 
-    return Promise.all([rollupRiot(filename), readFile(filename)])
+    return Promise.all([rollupRiot(filename), readExpectedString(filename)])
       .then(([result, expected]) => {
         expect(result).to.be.equal(expected)
       })
@@ -52,7 +52,7 @@ describe('rollup-plugin-riot', function() {
   it('multiple tag in single file', function() {
     const filename = 'multiple2.js'
 
-    return Promise.all([rollupRiot(filename), readFile(filename)])
+    return Promise.all([rollupRiot(filename), readExpectedString(filename)])
       .then(([result, expected]) => {
         expect(result).to.be.equal(expected)
       })
@@ -63,26 +63,7 @@ describe('rollup-plugin-riot', function() {
     const filename = 'another-ext.js'
     const opts = { ext: 'html' }
 
-    return Promise.all([rollupRiot(filename, opts), readFile(filename)])
-      .then(([result, expected]) => {
-        expect(result).to.be.equal(expected)
-      })
-  })
-
-  it('skip css', function() {
-    const filename = 'skip.js'
-    const opts = { skip: ['css'] }
-
-    return Promise.all([rollupRiot(filename, opts), readFile(filename)])
-      .then(([result, expected]) => {
-        expect(result).to.be.equal(expected)
-      })
-  })
-
-  it('es6 import inside tag', function() {
-    const filename = 'es6-in-tag.js'
-
-    return Promise.all([rollupRiot(filename), readFile(filename)])
+    return Promise.all([rollupRiot(filename, opts), readExpectedString(filename)])
       .then(([result, expected]) => {
         expect(result).to.be.equal(expected)
       })
@@ -92,9 +73,10 @@ describe('rollup-plugin-riot', function() {
     const filename = 'custom-parsers.js'
     registerPreprocessor('css', 'cssnext', cssnext)
 
-    return Promise.all([rollupRiot(filename), readFile(filename)])
+    return Promise.all([rollupRiot(filename), readExpectedString(filename)])
       .then(([result, expected]) => {
-        expect(result).to.be.equal(expected)
+
+        expect(result).to.have.string(expected)
       })
   })
 

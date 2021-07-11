@@ -1,6 +1,6 @@
 # Rollup Plugin for Riot
 
-[![Build Status][travis-image]][travis-url]
+[![Build Status][ci-image]][ci-url]
 [![NPM version][npm-version-image]][npm-url]
 [![NPM downloads][npm-downloads-image]][npm-url]
 [![MIT License][license-image]][license-url]
@@ -47,7 +47,6 @@ export default {
 ```
 
 - `ext`: extension of tag file (default is 'riot')
-- `skip`: `exclude` on Riot API. Ex. `html`, `css` or `js`
 - `include`: a [minimatch](https://www.npmjs.com/package/minimatch) pattern for including files.
 - `exclude`: a minimatch pattern for excluding files.
 
@@ -57,8 +56,9 @@ And other options of `@riotjs/compiler` could be used.
 
 - https://github.com/riot/examples/tree/gh-pages/rollup
 
-[travis-image]:https://img.shields.io/travis/riot/rollup-plugin-riot.svg?style=flat-square
-[travis-url]:https://travis-ci.org/riot/rollup-plugin-riot
+
+[ci-image]:https://img.shields.io/github/workflow/status/riot/rollup-plugin-riot/test?style=flat-square
+[ci-url]:https://github.com/riot/rollup-plugin-riot/actions
 
 [license-image]:https://img.shields.io/badge/license-MIT-000000.svg?style=flat-square
 [license-url]:LICENSE
