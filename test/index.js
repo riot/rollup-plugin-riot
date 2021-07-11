@@ -36,7 +36,7 @@ describe('rollup-plugin-riot', function() {
 
     return Promise.all([rollupRiot(filename), readExpectedString(filename)])
       .then(([result, expected]) => {
-        expect(result).to.be.equal(expected)
+        expect(result).to.have.string(expected)
       })
   })
 
@@ -45,7 +45,7 @@ describe('rollup-plugin-riot', function() {
 
     return Promise.all([rollupRiot(filename), readExpectedString(filename)])
       .then(([result, expected]) => {
-        expect(result).to.be.equal(expected)
+        expect(result).to.have.string(expected)
       })
   })
 
@@ -54,7 +54,7 @@ describe('rollup-plugin-riot', function() {
 
     return Promise.all([rollupRiot(filename), readExpectedString(filename)])
       .then(([result, expected]) => {
-        expect(result).to.be.equal(expected)
+        expect(result).to.have.string(expected)
       })
   })
 
@@ -65,7 +65,7 @@ describe('rollup-plugin-riot', function() {
 
     return Promise.all([rollupRiot(filename, opts), readExpectedString(filename)])
       .then(([result, expected]) => {
-        expect(result).to.be.equal(expected)
+        expect(result).to.have.string(expected)
       })
   })
 
