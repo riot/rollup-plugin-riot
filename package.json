@@ -23,7 +23,7 @@
   ],
   "peerDependencies": {
     "@riotjs/compiler": "^6.0.0",
-    "rollup": ">=2.33.3"
+    "rollup": ">=2.53.1"
   },
   "dependencies": {
     "rollup-pluginutils": "^2.8.2"
