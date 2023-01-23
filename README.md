@@ -57,7 +57,7 @@ And other options of `@riotjs/compiler` could be used.
 - https://github.com/riot/examples/tree/gh-pages/rollup
 
 
-[ci-image]:https://img.shields.io/github/workflow/status/riot/rollup-plugin-riot/test?style=flat-square
+[ci-image]:https://img.shields.io/github/actions/workflow/status/riot/rollup-plugin-riot/test.yml?style=flat-square
 [ci-url]:https://github.com/riot/rollup-plugin-riot/actions
 
 [license-image]:https://img.shields.io/badge/license-MIT-000000.svg?style=flat-square
