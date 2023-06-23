@@ -3,4 +3,4 @@ var multiple = {
   Second
 };
 
-export default multiple;
+export { multiple as default };

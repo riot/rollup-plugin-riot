@@ -9,7 +9,7 @@ export default function riot(options) {
   const filter = getFilter(options)
 
   // drop properties not necessary for Riot compiler
-  ;['ext', 'include', 'parsers', 'sourcemap'].forEach(key => {
+  ;['ext', 'include', 'parsers', 'sourcemap'].forEach((key) => {
     delete options[key]
   })
 
@@ -21,10 +21,10 @@ export default function riot(options) {
 
       const { code, map } = compile(src, {
         file: id,
-        ...options
+        ...options,
       })
 
       return { code, map }
-    }
+    },
   }
 }

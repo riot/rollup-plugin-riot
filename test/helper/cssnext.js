@@ -1,7 +1,6 @@
-const
-  postcss = require('postcss'),
-  cssnext = require('postcss-cssnext')
+import postcss from 'postcss'
+import cssnext from 'postcss-cssnext'
 
-module.exports = function(css) {
+export default function (css) {
   return { code: postcss([cssnext]).process(css).css }
 }

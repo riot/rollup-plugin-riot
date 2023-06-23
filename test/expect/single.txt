@@ -1,1 +1,1 @@
-export default First;
+export { First as default };

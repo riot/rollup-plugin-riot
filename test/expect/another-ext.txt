@@ -1,1 +1,1 @@
-export default Fourth;
+export { Fourth as default };

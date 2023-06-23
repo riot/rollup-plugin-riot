@@ -1,4 +1,4 @@
-import pkg from './package.json'
+import pkg from './package.json' assert { type: 'json' }
 
 const external = Object.keys(pkg.dependencies)
 const banner = `/*
@@ -16,12 +16,11 @@ export default {
       banner,
       file: pkg.main,
       format: 'cjs',
-      interop: false
     },
     {
       banner,
       file: pkg.module,
-      format: 'es'
-    }
-  ]
+      format: 'es',
+    },
+  ],
 }

@@ -1,1 +1,1 @@
-export default Third;
+export { Third as default };
