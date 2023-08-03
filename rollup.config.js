@@ -1,25 +1,16 @@
-import pkg from './package.json' assert { type: 'json' }
-
-const external = Object.keys(pkg.dependencies)
-const banner = `/*
-  rollup-plugin-riot v${pkg.version}
-  @license ${pkg.license}
-*/
-/*eslint-disable*/`
+const banner = '/* Rollup Riot.js Plugin, @license MIT */'
 
 export default {
-  input: pkg.source,
-  plugins: [],
-  external,
+  input: './src/index.js',
   output: [
     {
       banner,
-      file: pkg.main,
+      file: './dist/rollup-plugin-riot.cjs',
       format: 'cjs',
     },
     {
       banner,
-      file: pkg.module,
+      file: './dist/rollup-plugin-riot.js',
       format: 'es',
     },
   ],

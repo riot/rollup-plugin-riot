@@ -27,24 +27,24 @@
     "rollup-plugin"
   ],
   "peerDependencies": {
-    "@riotjs/compiler": "^9.0.0",
+    "@riotjs/compiler": ">=7.0.0",
     "rollup": ">=2.53.1"
   },
   "dependencies": {
     "rollup-pluginutils": "^2.8.2"
   },
   "devDependencies": {
-    "@riotjs/compiler": "^9.0.0-rc.2",
-    "@riotjs/prettier-config": "^1.0.1",
+    "@riotjs/compiler": "^9.0.3",
+    "@riotjs/prettier-config": "^1.1.0",
     "chai": "^4.3.7",
-    "eslint": "^8.43.0",
-    "eslint-config-riot": "^4.0.0",
+    "eslint": "^8.46.0",
+    "eslint-config-riot": "^4.1.0",
     "fs-extra": "^11.1.1",
     "mocha": "^10.2.0",
-    "postcss": "^8.4.24",
+    "postcss": "^8.4.27",
     "postcss-cssnext": "^3.1.0",
-    "prettier": "^2.8.8",
-    "rollup": "^3.25.1"
+    "prettier": "^3.0.1",
+    "rollup": "^3.27.1"
   },
   "scripts": {
     "build": "rollup -c",
