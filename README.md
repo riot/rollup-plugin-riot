@@ -24,8 +24,10 @@ Requires @riotjs/compiler > 4.x.x and Rollup v1.x.x or above.
 ```js
 import riot from 'rollup-plugin-riot'
 export default {
-  entry: 'src/main.js',
-  dest: 'dist/bundle.js',
+  input: 'src/main.js',
+  output: {
+    file: 'dist/bundle.js'
+  },
   plugins: [riot()],
 }
 ```
@@ -40,8 +42,10 @@ const options = {
   ext: 'html',
 }
 export default {
-  entry: 'src/main.js',
-  dest: 'dist/bundle.js',
+  input: 'src/main.js',
+  output: {
+    file: 'dist/bundle.js'
+  },
   plugins: [riot(options)],
 }
 ```
