@@ -1,4 +1,4 @@
-import { createFilter } from 'rollup-pluginutils'
+import { createFilter } from '@rollup/pluginutils'
 
 const justExt = (file) => {
   const match = /[^/\\]\.([^./\\]*)$/.exec(file)

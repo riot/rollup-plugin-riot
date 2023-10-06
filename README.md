@@ -26,7 +26,7 @@ import riot from 'rollup-plugin-riot'
 export default {
   input: 'src/main.js',
   output: {
-    file: 'dist/bundle.js'
+    file: 'dist/bundle.js',
   },
   plugins: [riot()],
 }
@@ -44,7 +44,7 @@ const options = {
 export default {
   input: 'src/main.js',
   output: {
-    file: 'dist/bundle.js'
+    file: 'dist/bundle.js',
   },
   plugins: [riot(options)],
 }
