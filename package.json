@@ -26,10 +26,6 @@
     "riot",
     "rollup-plugin"
   ],
-  "peerDependencies": {
-    "@riotjs/compiler": ">=7.0.0",
-    "rollup": ">=2.53.1"
-  },
   "dependencies": {
     "@rollup/pluginutils": "^5.1.4"
   },
