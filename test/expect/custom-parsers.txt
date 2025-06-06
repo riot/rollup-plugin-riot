@@ -1,1 +1,1 @@
-`custom-parsers :scope,[is="custom-parsers"] :scope{ --riot-color: #f04; } custom-parsers h1,[is="custom-parsers"] h1{ color: var(--riot-color); border-bottom: 1px solid var(--riot-color); }`,
+`custom-parsers :scope,[is="custom-parsers"] :scope{ --riot-color: #f04; }custom-parsers h1,[is="custom-parsers"] h1{ color: var(--riot-color); border-bottom: 1px solid var(--riot-color); }`,
