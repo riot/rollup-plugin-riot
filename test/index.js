@@ -102,4 +102,15 @@ describe('rollup-plugin-riot', function () {
       expect(result.map).to.be.an('object')
     })
   })
+
+  it('injects hot reload code when hot option is enabled', function () {
+    const filename = 'single.js'
+
+    return rollupRiot(filename, { hot: true }).then((result) => {
+      expect(result).to.have.string('@riotjs/hot-reload')
+      expect(result).to.have.string('import.meta.hot')
+      expect(result).to.have.string('module.hot')
+      expect(result).to.have.string('export { First as default }')
+    })
+  })
 })

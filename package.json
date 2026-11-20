@@ -27,20 +27,20 @@
     "rollup-plugin"
   ],
   "dependencies": {
-    "@rollup/pluginutils": "^5.2.0"
+    "@rollup/pluginutils": "^5.5.1"
   },
   "devDependencies": {
-    "@riotjs/compiler": "^10.0.0",
+    "@riotjs/compiler": "^10.0.5",
     "@riotjs/prettier-config": "^1.1.0",
-    "chai": "^6.0.1",
-    "eslint": "^9.33.0",
-    "eslint-config-riot": "^5.0.2",
-    "fs-extra": "^11.3.1",
-    "mocha": "^11.7.1",
-    "postcss": "^8.5.6",
+    "chai": "^6.3.0",
+    "eslint": "^10.15.0",
+    "eslint-config-riot": "^6.0.1",
+    "fs-extra": "^11.4.1",
+    "mocha": "^12.0.3",
+    "postcss": "^8.5.33",
     "postcss-cssnext": "^3.1.1",
-    "prettier": "^3.6.2",
-    "rollup": "^4.47.1"
+    "prettier": "^3.10.1",
+    "rollup": "^4.68.7"
   },
   "scripts": {
     "build": "rollup -c",

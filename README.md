@@ -53,12 +53,19 @@ export default {
 - `ext`: extension of tag file (default is 'riot')
 - `include`: a [minimatch](https://www.npmjs.com/package/minimatch) pattern for including files.
 - `exclude`: a minimatch pattern for excluding files.
+- `hot`: enable hot module replacement (HMR) support by injecting `@riotjs/hot-reload` integration code.
+
+If you enable `hot` you will also need to install [`@riotjs/hot-reload`](https://www.npmjs.com/package/@riotjs/hot-reload):
+
+```bash
+npm install @riotjs/hot-reload -D
+```
 
 And other options of `@riotjs/compiler` could be used.
 
 ## Recipes
 
-- https://github.com/riot/examples/tree/gh-pages/rollup
+- <https://github.com/riot/examples/tree/gh-pages/rollup>
 
 [ci-image]: https://img.shields.io/github/actions/workflow/status/riot/rollup-plugin-riot/test.yml?style=flat-square
 [ci-url]: https://github.com/riot/rollup-plugin-riot/actions
